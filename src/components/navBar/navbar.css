@@ -1,0 +1,45 @@
+.navbar {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 10px 20px;
+   background-color: darkred;
+ }
+ 
+ h2 {
+   margin: 0;
+   font-size: 24px;
+   font-weight: bold;
+ }
+ 
+ .nav-items {
+   list-style: none;
+   display: flex;
+   gap: 20px; 
+ }
+ 
+ .nav-items li {
+   display: flex;
+   align-items: center;
+ }
+ 
+ .nav-items a {
+   text-decoration: none;
+   color: black;
+   font-size: 18px;
+ }
+ 
+ .nav-items i {
+   margin-right: 8px;
+ }
+ 
+ .cart-container {
+   display: flex;
+   align-items: center;
+ }
+ 
+ .carrito {
+   width: 40px;
+   height: 40px;
+   margin-right: 8px;
+ }
