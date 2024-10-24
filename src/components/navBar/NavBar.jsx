@@ -1,33 +1,38 @@
 import CartWidget from "./CartWidget"
+import { Link } from "react-router-dom";
 import "./navbar.css"
 
 const NavBar = () => {
 
     return (
       <nav className="navbar">
-      <h2>Clothes Empire</h2>
-      <ul className="nav-items">
-        <li>
-          <a href="#gorras">
-            <i></i> Gorras
-          </a>
+        <Link to="/" className="brand">
+        <img className="logo" src="/img/proyecto de ropa-04.JPG" alt="" />
+        <h2 className="empire-name">Clothes Empire</h2>
+        </Link>
+      
+      <ul className="categorias">
+        <li className="categoria">
+          <Link to="/categoria/camisetas"> Camisetas </Link>
         </li>
-        <li>
-          <a href="#camisetas">
-            <i></i> Camisetas
-          </a>
+       
+        <li className="categoria">
+          <Link to="/categoria/camperas"> Camperas </Link>
         </li>
-        <li>
-          <a href="#camperas">
-            <i></i> Camperas
-          </a>
+
+        <li className="categoria">
+          <Link to="/categoria/shorts"> Shorts </Link>
         </li>
+
+        <li className="categoria">
+          <Link to="/categoria/conjuntos"> Conjuntos </Link>
+        </li>
+
         <li>
-          <a href="#shorts">
-            <i></i> Shorts
-          </a>
+          <Link to="/categoria/gorras"> Gorras </Link>
         </li>
       </ul>
+
       <CartWidget />
     </nav>
   );

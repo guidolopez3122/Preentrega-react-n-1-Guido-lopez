@@ -5,41 +5,46 @@
    padding: 10px 20px;
    background-color: darkred;
  }
- 
+ .brand{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+ }
+ .logo{
+  width: 80px;
+  height: 80px;
+ }
  h2 {
    margin: 0;
    font-size: 24px;
    font-weight: bold;
  }
- 
- .nav-items {
+ .categorias {
    list-style: none;
    display: flex;
    gap: 20px; 
  }
- 
- .nav-items li {
+ .categorias li {
    display: flex;
    align-items: center;
  }
- 
- .nav-items a {
+ .categorias a {
+  font-size: large;
    text-decoration: none;
-   color: black;
-   font-size: 18px;
+   color: rgb(178, 170, 170);
+   font-size: 20px;
  }
- 
- .nav-items i {
-   margin-right: 8px;
- }
- 
  .cart-container {
    display: flex;
    align-items: center;
  }
- 
  .carrito {
    width: 40px;
    height: 40px;
    margin-right: 8px;
+ }
+ .empire-name{
+  font-size: xx-large;
+  color: rgb(232, 187, 187);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
  }

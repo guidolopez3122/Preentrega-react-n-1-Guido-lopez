@@ -1,0 +1,35 @@
+.item-card {
+    background-color: rgb(39, 33, 33);
+    width: 300px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+.item-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.item-card img {
+    width: 260px;
+    height: 350px;
+    object-fit: cover; 
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.item-card p {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #d5dbe2;
+    margin-bottom: 15px;
+}
+.item-card h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #d5dbe2;
+    margin-bottom: 15px;
+}
