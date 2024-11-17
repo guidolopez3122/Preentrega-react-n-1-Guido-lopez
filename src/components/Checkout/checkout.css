@@ -1,0 +1,33 @@
+.checkout-confirmation {
+    background-color: #111;
+    color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .checkout-confirmation h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .checkout-confirmation p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .checkout-confirmation .checkout-home-link {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .checkout-confirmation .checkout-home-link:hover {
+    background-color: #cc0000;
+  }

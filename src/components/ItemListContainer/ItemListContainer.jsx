@@ -1,38 +1,65 @@
 import { useState, useEffect } from "react"
-import { getProducts } from "../../data/data"
 import { useParams } from "react-router-dom"
 import ItemList from "./ItemList"
+import { collection, getDocs, query, where } from "firebase/firestore"
+import db from "../../db/db.js"
 import "./itemlistcontainer.css"
 
-const ItemListContainer = ({saludo}) => {
+const ItemListContainer = ({ saludo }) => {
+    const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(true)
+    const { idCategoria } = useParams()
 
-    const[products, setProducts] = useState([])
-    const {idCategoria} = useParams()
+    const getProducts = () => {
+        const productsRef = collection(db, "products")
+        getDocs(productsRef)
+            .then((dataDb) => {
+                const productsDb = dataDb.docs.map((productDb) => ({
+                    id: productDb.id,
+                    ...productDb.data()
+                }))
+                setProducts(productsDb)
+                setLoading(false)
+            })
+            .catch((error) => {
+                console.error("Error fetching products:", error)
+                setLoading(false)
+            })
+    }
 
-    useEffect(()=> {
+    const getProductsByCategory = () => {
+        const productsRef = collection(db, "products")
+        const queryCategories = query(productsRef, where("categoria", "==", idCategoria))
+        getDocs(queryCategories)
+            .then((dataDb) => {
+                const productsDb = dataDb.docs.map((productDb) => ({
+                    id: productDb.id,
+                    ...productDb.data()
+                }))
+                setProducts(productsDb)
+                setLoading(false)
+            })
+            .catch((error) => {
+                console.error("Error fetching products by category:", error)
+                setLoading(false)
+            })
+    }
 
-        getProducts()
-        .then((data) =>{
-           if(idCategoria){
-            const filterProducts = data.filter((product)=> product.categoria === idCategoria)
-            setProducts(filterProducts)
-           }else{
-            setProducts(data)
-           }    
-        }).catch((error) =>{
-            console.error(error)
-        })
-        .finally(() =>{
-            console.log("proceso finalizado con exito codigo 0")
-        })
-    },[idCategoria])
+    useEffect(() => {
+        setLoading(true)
+        if (idCategoria) {
+            getProductsByCategory()
+        } else {
+            getProducts()
+        }
+    }, [idCategoria])
 
     return (
-    <div className="item-list-container">
-        <h1>{saludo}</h1>
-        <ItemList products={products}/>
-    </div>
-        
+        <div className="item-list-container">
+            <h1>{saludo}</h1>
+            {loading ? <div>Cargando...</div> : <ItemList products={products} />}
+        </div>
     )
 }
+
 export default ItemListContainer
